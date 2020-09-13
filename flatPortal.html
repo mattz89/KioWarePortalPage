@@ -1,0 +1,77 @@
+<!--
+Instructions:
+For this to work you must have Scripting access enabled for this page, OR
+you must have the page located in your UserData directory.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Change your Title in address bar here -->
+    <title>KioWare Example Android Portal Page</title>
+    <style>
+      button { color: transparent; background-color: transparent; border-color: transparent; }
+      .top-buffer { margin-top:75px; }
+      .vertical-center { height: 100vh; }
+    </style>
+  </head>
+  <!-- Change the below HTML color codes to change the background gradient (left to right) -->
+  <body style="background: linear-gradient(to right, #A4C639, #50A7C2);">
+    <div class="vertical-center d-flex align-items-center">
+    <div class="container">
+
+      <!-- Header Text or Image Section -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 text-center">
+            <!-- Text Header; comment out if using Image Header -->
+            <h1 style="color:#000000;">KioWare Example Android Portal Page</h1>
+            <!-- Uncomment Line Below for Image header -->
+            <!--<img src="images/logo.png" href="#"/>-->
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row top-buffer">
+
+          <!-- App Button 1 -->
+          <div class="col-sm-4 mb-5 text-center">
+            <button id="Gmail" onclick="KioWareUtils.runAppByLabel('Gmail')"></button>
+            <h6>Gmail</h6>
+          </div>
+
+          <!-- App Button 2 -->
+          <div class="col-sm-4 mb-5 text-center">
+            <button id="Calculator" onclick="KioWareUtils.runAppByLabel('Calculator')"></button>
+            <h6>Calculator</h6>
+          </div>
+
+          <!-- App Button 3 -->
+          <div class="col-sm-4 mb-5 text-center">
+            <button id="Calendar" onclick="KioWareUtils.runAppByLabel('Calendar')"></button>
+            <h6>Calendar</h6>
+          </div>
+
+          <!-- Example Website Link Button -->
+          <div class="col-sm-4 mb-5 text-center">
+            <button onclick="window.location.href = 'https://m.kioware.com/android';">
+              <img src="images/android.png" width="72px" height="72px" />
+            </button>
+            <h6>KioWare.com</h6>
+          </div>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        //Change only the app names in the line below this to reflect your apps.
+        var apps = ["Gmail", "Calculator", "Calendar"];
+        for (var appName of apps) {
+          var button1 = document.getElementById(appName);
+          var image1 = KioWareUtils.getAppIconByLabel(appName);
+          button1.innerHTML = '<img src="data:image/png;base64,' + image1 + '"/>';
+        }
+    </script>
+  </body>
+</html>
